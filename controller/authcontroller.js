@@ -14,7 +14,7 @@ exports.login_post = async (req,res) => {
     //check if password is correct
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if(!validPass)return res.status(400).send('invalid password');
-    
+    req.session.isAuth= true;
     res.status(200).send('Login sucesseded');
 };
 
@@ -47,4 +47,10 @@ exports.signup_post = async (req,res) => {
     } catch (error) {
         res.status(400).send(error);
     }
+};
+
+exports.logout_post = async (req,res) => {
+    req.session.destroy((err) => {
+        if (err) return res.status(400).send(err.details[0].message);
+    })
 };
