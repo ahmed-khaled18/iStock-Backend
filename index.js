@@ -13,7 +13,10 @@ const corsoption = {
     "origin": "*",
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": false,
-    "optionsSuccessStatus": 204
+    "optionsSuccessStatus": 204,
+    //neww trial
+    "Access-Control-Allow-Credentials": true,
+    // credentials: true,
   };
 app.use(cors(corsoption));
 app.use(express.json());

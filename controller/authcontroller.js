@@ -15,7 +15,8 @@ exports.login_post = async (req,res) => {
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if(!validPass)return res.status(400).send('invalid password');
     req.session.isAuth= true;
-    res.status(200).send('Login sucesseded');
+
+    res.status(200).send(user);
 };
 
 exports.signup_post = async (req,res) => {
