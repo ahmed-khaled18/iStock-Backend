@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 connectDB();
 
 //Middleware
+const isAuth = require("./middleware/isAusth");
 //CORS Middelware
 const cors = require('cors')
 const corsoption = {
@@ -40,10 +41,11 @@ app.use(
 
 //Route Middleware
 const authRoute = require('./routes/auth');
+const watchList = require('./routes/watchlist')
 const { collection } = require('./model/User');
 app.use('/api/user',authRoute);
-
-app.get('/',(req,res) => {
+//app.use('api/watchlist',watchList);
+app.get('/',isAuth,(req,res) => {
   res.send('session');
 });
 

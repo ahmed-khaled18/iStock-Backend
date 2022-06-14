@@ -51,7 +51,11 @@ exports.signup_post = async (req,res) => {
 };
 
 exports.logout_post = async (req,res) => {
-    req.session.destroy((err) => {
-        if (err) return res.status(400).send(err.details[0].message);
-    })
+    req.session.destroy(err => {
+        if (err) {
+          res.status(400).send('Unable to log out')
+        } else {
+          res.send('Logout successful')
+        }
+      });
 };
