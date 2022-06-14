@@ -42,9 +42,9 @@ app.use(
 //Route Middleware
 const authRoute = require('./routes/auth');
 const watchList = require('./routes/watchlist')
-const { collection } = require('./model/User');
+//Routes
 app.use('/api/user',authRoute);
-//app.use('api/watchlist',watchList);
+app.use('/api/watchlist',isAuth,watchList);
 app.get('/',isAuth,(req,res) => {
   res.send('session');
 });

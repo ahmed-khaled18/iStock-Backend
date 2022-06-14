@@ -19,6 +19,7 @@ const userSchemea = new mongoose.Schema({
         min:6,
         max:1024
     },
+    TCK: [String],
 },{collection:"Users"});
 
 module.exports = mongoose.model('User', userSchemea);

@@ -1,8 +1,8 @@
-// const router = require('express').Router();
-// const watchListcontroller = require('../controller/watchlistcontroller');
+const router = require('express').Router();
+const watchListcontroller = require('../controller/watchlistcontroller');
 
-// router.get('/watchlist',watchListcontroller.getlist);
-// router.delete('/watchlist',watchListcontroller.deletefromlist);
-// router.put('/watchlist',watchListcontroller.addtolist);
+router.get('/get',watchListcontroller.getlist);
+router.delete('/delete',watchListcontroller.deletefromlist);
+router.put('/add',watchListcontroller.addtolist);
 
-// module.exports = router;
+module.exports = router;
