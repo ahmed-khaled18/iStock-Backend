@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const {signupValidation,loginValidation} = require('../middleware/validation');
 
 exports.login_post = async (req,res) => {
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     //valddating data
     const { error } = loginValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);//error message  

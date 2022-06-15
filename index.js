@@ -17,7 +17,7 @@ const corsoption = {
     "optionsSuccessStatus": 204,
     //neww trial
     "Access-Control-Allow-Credentials": true,
-    // credentials: true,
+    credentials: true,
   };
 app.use(cors(corsoption));
 app.use(express.json());
