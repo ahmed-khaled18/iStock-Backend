@@ -11,7 +11,7 @@ const isAuth = require("./middleware/isAusth");
 //CORS Middelware
 const cors = require('cors')
 const corsoption = {
-    "origin": "*",
+    "origin": true,
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": false,
     "optionsSuccessStatus": 204,
@@ -36,7 +36,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: store,
-    cookie:{secure:true,httpOnly: false}
+    cookie:{secure:false,httpOnly: false, sameSite:'none'}
   })
 );
 
