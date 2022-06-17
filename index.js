@@ -16,8 +16,7 @@ const corsoption = {
     "preflightContinue": false,
     "optionsSuccessStatus": 204,
     //neww trial
-    "Access-Control-Allow-Credentials": true,
-    credentials: true,
+    "credentials": true,
   };
 app.use(cors(corsoption));
 app.use(express.json());
@@ -36,7 +35,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: store,
-    cookie:{secure:false,httpOnly: false, sameSite:'none'}
+    cookie:{}
   })
 );
 

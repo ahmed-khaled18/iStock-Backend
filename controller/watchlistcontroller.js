@@ -1,6 +1,8 @@
 const User = require('../model/User');
 exports.getlist = async (req,res) => {
     const user = await User.findOne({email: req.body.email});
+    if(!user.TCK)
+        res.send("no TCK in your list")
     res.send(user.TCK);
 };
 
