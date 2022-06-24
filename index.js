@@ -15,7 +15,6 @@ const corsoption = {
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": false,
     "optionsSuccessStatus": 204,
-    //neww trial
     "credentials": true,
   };
 app.use(cors(corsoption));
@@ -42,9 +41,11 @@ app.use(
 //Route Middleware
 const authRoute = require('./routes/auth');
 const watchList = require('./routes/watchlist')
+const prediction = require('./routes/prediction')
 //Routes
 app.use('/api/user',authRoute);
 app.use('/api/watchlist',isAuth,watchList);
+app.use('/api/prediction',isAuth,prediction);
 app.get('/',isAuth,(req,res) => {
   res.send('session');
 });
