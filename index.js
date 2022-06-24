@@ -45,7 +45,7 @@ const prediction = require('./routes/prediction')
 //Routes
 app.use('/api/user',authRoute);
 app.use('/api/watchlist',isAuth,watchList);
-app.use('/api/prediction',isAuth,prediction);
+app.use('/api/prediction',prediction);
 app.get('/',isAuth,(req,res) => {
   res.send('session');
 });
