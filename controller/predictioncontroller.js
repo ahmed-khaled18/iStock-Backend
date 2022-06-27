@@ -3,8 +3,13 @@ const Prediction = require('../model/Prediction');
 
 
 exports.getprediction = async (req, res) => {
-    const pred= await Prediction.findOne({ name: "EGX30" });
-    res.status(200).send(pred);
+    try {
+        const pred= await Prediction.findOne({ name: "EGX30" });
+        res.status(200).send(pred);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+
 };
 
 exports.addprediction = async (req, res) => {

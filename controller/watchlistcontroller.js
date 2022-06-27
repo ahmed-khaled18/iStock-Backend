@@ -20,6 +20,6 @@ exports.addtolist = async (req,res) => {
 };
 exports.deletefromlist = async (req,res) => {
     for(let i = 0 ; i < req.body.TCK.length;i++)
-        await User.findOneAndUpdate({email: req.body.email},{TCK: req.body.TCK[i]});
+        await User.findOneAndUpdate({email: req.body.email},{$pull: {TCK: req.body.TCK[i]}});
     res.status(200).send("TCK has been deleted");
 };
